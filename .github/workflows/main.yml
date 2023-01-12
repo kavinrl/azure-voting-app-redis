@@ -19,9 +19,6 @@ jobs:
           folder: azure-vote
           branch: master
           tag: ${{ github.sha }}
-      - name: Install Azure CLI
-        run:  |
-                sudo apt-get install -y azure-cli
       - name: Azure login
         id: login
         uses: azure/login@v1.4.3
