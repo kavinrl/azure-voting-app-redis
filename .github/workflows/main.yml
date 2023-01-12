@@ -27,7 +27,10 @@ jobs:
         uses: azure/aks-set-context@v3
         with:
           method: kubeconfig
-          kubeconfig: ${{ secrets.KUBECONFIG }}
+          resource-group: ${{ secrets.RESOURCE_GROUP }}
+          cluster-name: ${{ secrets.CLUSTER_NAME }}
+          subscription: ${{ secrets.SUBSCRIPTION }}
+          use-kubelogin: ${{ secrets.KUBECONFIG }}
       - name: Setup kubectl
         id: install-kubectl
         uses: azure/setup-kubectl@v3
