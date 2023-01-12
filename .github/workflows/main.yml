@@ -22,15 +22,17 @@ jobs:
       - name: Install Azure CLI
         run:  |
                 sudo apt-get install -y azure-cli
+      - name: Azure login
+        id: login
+        uses: azure/login@v1.4.3
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Set AKS context
         id: set-context
         uses: azure/aks-set-context@v3
         with:
-          method: kubeconfig
-          resource-group: ${{ secrets.RESOURCE_GROUP }}
-          cluster-name: ${{ secrets.CLUSTER_NAME }}
-          subscription: ${{ secrets.SUBSCRIPTION }}
-          use-kubelogin: ${{ secrets.KUBECONFIG }}
+          resource-group: '${{ secrets.resource_group }}' 
+          cluster-name: '${{ secrets.cluster_name }}'
       - name: Setup kubectl
         id: install-kubectl
         uses: azure/setup-kubectl@v3
