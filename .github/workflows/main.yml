@@ -15,7 +15,7 @@ jobs:
           tenant: ${{ secrets.tenant }}
           registry: ${{ secrets.registry }}
           repository: ${{ secrets.repository }}
-          image:  azure-vote-back
+          image:  azure-vote-front
           folder: azure-vote
           branch: master
           tag: ${{ github.sha }}
