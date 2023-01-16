@@ -1,4 +1,4 @@
-name: build_deploy_aks
+name: build_deploy_aks_cluster
 on: [push]
 jobs:
   build:
