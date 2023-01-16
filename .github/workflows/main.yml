@@ -24,12 +24,10 @@ jobs:
         with:
           creds: ${{secrets.AZURE_CREDENTIALS}}
           enable-AzPSSession: true 
-      - name: Set AKS context
-        id: set-context
-        uses: azure/aks-set-context@v1
+      - name: kubernetes set context
+        uses: azure/k8s-set-context@v1
         with:
-          resource-group: '${{ secrets.resource_group }}' 
-          cluster-name: '${{ secrets.cluster_name }}'
+          kubeconfig: ${{ secrets.KUBECONFIG }}
       - name: Setup kubectl
         id: install-kubectl
         uses: azure/setup-kubectl@v1
