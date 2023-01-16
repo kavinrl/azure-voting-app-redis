@@ -1,8 +1,5 @@
 name: build_deploy_aks
-on:
-  push:
-    paths:
-      - "azure-vote/**"
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
